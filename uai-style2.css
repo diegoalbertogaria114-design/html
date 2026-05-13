@@ -1,0 +1,263 @@
+/* Elegant Glassmorphism Design System */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-dark: #2d3436;
+    --accent-pink: #fd79a8;
+    --accent-blue: #74b9ff;
+    --container-width: 1000px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-pink);
+    top: -100px;
+    right: -100px;
+}
+
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background: var(--accent-blue);
+    bottom: -150px;
+    left: -150px;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Glass Header */
+header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.logo span { color: var(--accent-pink); }
+
+nav ul { display: flex; list-style: none; gap: 1.5rem; }
+
+nav ul a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav ul a:hover, nav ul a.active { color: var(--accent-pink); }
+
+/* Glass Card Base */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Hero Section */
+.hero-section { padding: 4rem 0; }
+
+.hero-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-area {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+    border-radius: 30px;
+    overflow: hidden;
+    transform: rotate(-3deg);
+    border: 5px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.profile-img { width: 100%; height: 100%; object-fit: cover; }
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #636e72;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.btn-glass {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0.5rem;
+    background: white;
+    color: var(--text-dark);
+    transition: all 0.3s;
+}
+
+.btn-glass.outline {
+    background: transparent;
+    border: 2px solid white;
+}
+
+.btn-glass:hover {
+    transform: translateY(-5px);
+    background: var(--accent-pink);
+    color: white;
+}
+
+/* Sections */
+.section { padding: 3rem 0; }
+
+.playfair {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.centered { text-align: center; }
+
+/* Projects Grid */
+.glass-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.glass-project {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.glass-project:hover { transform: scale(1.03); }
+
+.img-container { height: 180px; }
+
+.img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+.info { padding: 1.5rem; }
+
+.info h3 { font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+
+/* Contact Section */
+.contact-section { text-align: center; }
+
+.email-link {
+    font-size: 1.5rem;
+    color: var(--accent-pink);
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    margin-top: 1rem;
+}
+
+/* Footer */
+.glass-footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 3rem;
+}
+
+.footer-links a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #636e72;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .hero-card { padding: 1.5rem; }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transition: transform 0.3s ease;
+}
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+}
