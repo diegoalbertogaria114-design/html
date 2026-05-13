@@ -135,7 +135,7 @@
         <section id="proyectos" class="projects-section container">
             <h2 class="section-title" data-aos="fade-up">Proyectos Destacados</h2>
             <div class="projects-container">
-                <article class="project-card-premium" data-aos="fade-up" data-aos-delay="100">
+                <article class="project-card-premium" data-aos="fade-up" data-aos-delay="100" onclick="openProjectModal('staynoba')">
                     <div class="project-preview">
                         <img src="project1.png" alt="Staynoba">
                         <div class="project-overlay">
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="project-card-premium" data-aos="fade-up" data-aos-delay="200">
+                <article class="project-card-premium" data-aos="fade-up" data-aos-delay="200" onclick="openProjectModal('ferreteria')">
                     <div class="project-preview">
                         <img src="project2.png" alt="Sistema Ferretería">
                         <div class="project-overlay">
@@ -165,7 +165,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="project-card-premium" data-aos="fade-up" data-aos-delay="300">
+                <article class="project-card-premium" data-aos="fade-up" data-aos-delay="300" onclick="openProjectModal('nutrizen')">
                     <div class="project-preview">
                         <img src="project3.png" alt="Nutrizen">
                         <div class="project-overlay">
@@ -221,10 +221,46 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <!-- WhatsApp Button -->
     <a href="https://wa.me/51998244133" class="whatsapp-btn" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
+
+    <!-- Welcome Modal -->
+    <div class="modal-overlay" id="welcomeModalOverlay">
+        <div class="welcome-modal">
+            <button class="modal-close" onclick="closeWelcomeModal()">&times;</button>
+            <span class="modal-badge">Bienvenido</span>
+            <h2>¡Hola! Soy Diego Alberto</h2>
+            <p>Explora mi portafolio premium donde la ingeniería de software se encuentra con el diseño de vanguardia. Especialista en soluciones Full Stack escalables.</p>
+            <div class="modal-footer">
+                <button class="btn btn-filled" onclick="closeWelcomeModal()">Empezar a Explorar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="project-modal">
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-image">
+                    <img src="" alt="Project Image" id="modalImg">
+                </div>
+                <div class="modal-info">
+                    <span class="modal-badge" id="modalBadge">Web App</span>
+                    <h2 id="modalTitle">Project Title</h2>
+                    <p class="modal-description" id="modalDesc">Detailed description goes here...</p>
+                    <ul class="modal-features" id="modalFeatures">
+                        <!-- Features will be injected here -->
+                    </ul>
+                    <div class="modal-footer">
+                        <a href="#contacto" class="btn btn-filled" onclick="closeProjectModal()">Contactar Ahora</a>
+                        <a href="javascript:void(0)" class="btn btn-outlined" onclick="closeProjectModal()">Cerrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Premium Portafolio PDF Template (Hidden) -->
     <div id="portfolio-pdf-template" style="display: none; padding: 0; font-family: 'Plus Jakarta Sans', Arial, sans-serif; background: #fff; width: 800px; margin: 0 auto; color: #1a1a1a;">
@@ -320,6 +356,103 @@
             once: true,
             offset: 100
         });
+
+        // Project Data
+        const projects = {
+            staynoba: {
+                title: "Staynoba - Alquiler Inteligente",
+                badge: "Web App | Real Estate",
+                image: "project1.png",
+                desc: "Plataforma web disruptiva diseñada para la búsqueda y gestión de alquileres de cuartos y espacios. Enfocada en la facilidad de uso y la conexión directa entre propietarios y arrendatarios.",
+                features: ["Sistema de búsqueda avanzada", "Gestión de perfiles de usuario", "Panel de administración intuitivo", "Diseño responsivo y moderno"]
+            },
+            ferreteria: {
+                title: "Sistema ERP Ferretería",
+                badge: "ERP | Business",
+                image: "project2.png",
+                desc: "Una solución técnica completa que abarca desde el control preciso de inventarios hasta la administración económica avanzada y facturación. Incluye una landing page corporativa para la captación de clientes.",
+                features: ["Control de inventario en tiempo real", "Facturación electrónica integrada", "Reportes financieros detallados", "Módulo de gestión de clientes"]
+            },
+            nutrizen: {
+                title: "Nutrizen - Salud y Nutrición",
+                badge: "HealthTech | Analytics",
+                image: "project3.png",
+                desc: "Aplicación web especializada en el seguimiento nutricional y control de consumo de alimentos. Permite a los usuarios monitorear sus hábitos alimenticios para lograr una vida más saludable.",
+                features: ["Seguimiento de consumo calórico", "Planes nutricionales personalizados", "Gráficos de progreso interactivos", "Base de datos de alimentos"]
+            }
+        };
+
+        // Welcome Modal Trigger
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                openWelcomeModal();
+            }, 800);
+        });
+
+        function openWelcomeModal() {
+            const modal = document.getElementById('welcomeModalOverlay');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWelcomeModal() {
+            const modal = document.getElementById('welcomeModalOverlay');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 400);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Modal Logic
+        function openProjectModal(projectId) {
+            const project = projects[projectId];
+            if (!project) return;
+
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalBadge').textContent = project.badge;
+            document.getElementById('modalImg').src = project.image;
+            document.getElementById('modalDesc').textContent = project.desc;
+            
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = '';
+            project.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 400);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on click outside
+        window.onclick = function(event) {
+            const welcomeModal = document.getElementById('welcomeModalOverlay');
+            const projectModal = document.getElementById('projectModal');
+            
+            if (event.target == welcomeModal) {
+                closeWelcomeModal();
+            } else if (event.target == projectModal) {
+                closeProjectModal();
+            }
+        }
 
         document.getElementById('btnDownloadPortfolio').addEventListener('click', function() {
             const element = document.getElementById('portfolio-pdf-template');
