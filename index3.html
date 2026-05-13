@@ -11,6 +11,10 @@
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syne:wght@700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="uai-style3.css">
+    <!-- Animations and PDF Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body class="vibrant-mode">
@@ -22,7 +26,7 @@
                 <a href="index1.html">CSS1</a>
                 <a href="index2.html">CSS2</a>
                 <a href="index3.html" class="nav-active">CSS3</a>
-                <a href="temp_links.html">Portfolio</a>
+                <a href="index.html">Portafolio</a>
             </nav>
         </div>
     </header>
@@ -36,6 +40,7 @@
                         moldes del diseño convencional.</p>
                     <div class="hero-actions">
                         <a href="#proyectos" class="btn-vibrant">Explorar</a>
+                        <a href="javascript:void(0)" id="btnDownloadPortfolio" class="btn-vibrant" style="background: white; color: black; margin-left: 10px;">Descargar PDF</a>
                         <div class="social-links">
                             <span>IG</span> / <span>LI</span> / <span>GH</span>
                         </div>
@@ -116,6 +121,120 @@
     <a href="https://wa.me/51998244133" class="whatsapp-btn" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
+
+    <!-- Premium Portafolio PDF Template (Hidden) -->
+    <div id="portfolio-pdf-template" style="display: none; padding: 0; font-family: 'Plus Jakarta Sans', Arial, sans-serif; background: #fff; width: 800px; margin: 0 auto; color: #1a1a1a;">
+        <!-- Header / Banner -->
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 60px 40px; color: white; position: relative;">
+            <div style="position: relative; z-index: 2;">
+                <h1 style="margin: 0; font-size: 42px; font-weight: 800; letter-spacing: -1.5px;">DIEGO ALBERTO</h1>
+                <p style="margin: 12px 0 0; font-size: 20px; color: #38bdf8; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;">Full Stack Developer & Software Engineer</p>
+                <div style="margin-top: 30px; display: flex; gap: 30px; font-size: 14px; color: #cbd5e1; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                    <span>📧 diegoalbertogaria114@gmail.com</span>
+                    <span>📱 +51 998 244 133</span>
+                    <span>📍 Chincha, Perú</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 0;">
+            <!-- Left Sidebar -->
+            <div style="background: #f1f5f9; padding: 40px 30px; border-right: 2px solid #e2e8f0; min-height: 1000px;">
+                <div style="margin-bottom: 45px;">
+                    <h3 style="font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 20px; letter-spacing: 1px;">PERFIL</h3>
+                    <p style="font-size: 13px; line-height: 1.7; color: #334155; margin: 0;">Arquitecto de soluciones especializado en el stack MERN y arquitecturas cloud. Enfocado en crear sistemas escalables que optimicen procesos de negocio.</p>
+                </div>
+
+                <div style="margin-bottom: 45px;">
+                    <h3 style="font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 20px; letter-spacing: 1px;">EDUCACIÓN</h3>
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin: 0; font-weight: 700; font-size: 14px; color: #0f172a;">Ingeniería de Sistemas</p>
+                        <p style="margin: 3px 0 0; font-size: 12px; color: #64748b;">Univ. Autónoma de Ica</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 45px;">
+                    <h3 style="font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 20px; letter-spacing: 1px;">STACK TÉCNICO</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <span style="background: #fff; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; color: #0f172a;">React.js</span>
+                        <span style="background: #fff; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; color: #0f172a;">Node.js</span>
+                        <span style="background: #fff; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; color: #0f172a;">Python</span>
+                        <span style="background: #fff; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; color: #0f172a;">MongoDB</span>
+                        <span style="background: #fff; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; color: #0f172a;">AWS</span>
+                        <span style="background: #fff; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; color: #0f172a;">Docker</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div style="padding: 40px 45px;">
+                <div style="margin-bottom: 50px;">
+                    <h2 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 25px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;">EXPERIENCIA PROFESIONAL</h2>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h3 style="margin: 0; font-size: 17px; color: #0f172a;">Desarrollador de Plataformas</h3>
+                            <span style="font-size: 12px; color: #38bdf8; font-weight: 700;">PRESENTE</span>
+                        </div>
+                        <p style="margin: 5px 0 12px; font-size: 14px; color: #64748b; font-weight: 500;">Freelance / Proyectos Propios</p>
+                        <p style="margin: 0; font-size: 13px; color: #475569; line-height: 1.7;">Liderazgo técnico en el diseño y despliegue de ecosistemas digitales complejos, integrando pasarelas de pago y sistemas de gestión de datos en tiempo real.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 25px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;">PORTAFOLIO DE PROYECTOS</h2>
+
+                    <div style="margin-bottom: 25px; padding: 20px; background: #f8fafc; border-radius: 15px; border: 1px solid #f1f5f9;">
+                        <h4 style="margin: 0; font-size: 16px; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #38bdf8;">★</span> Staynoba - Alquiler Inteligente
+                        </h4>
+                        <p style="margin: 10px 0 0; font-size: 12.5px; color: #475569; line-height: 1.6;">Arquitectura Web completa para la gestión de bienes raíces. Incluye panel de administración, filtros avanzados y sistema de reservas dinámico.</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px; padding: 20px; background: #f8fafc; border-radius: 15px; border: 1px solid #f1f5f9;">
+                        <h4 style="margin: 0; font-size: 16px; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #38bdf8;">★</span> ERP Ferretería DIWIFA
+                        </h4>
+                        <p style="margin: 10px 0 0; font-size: 12.5px; color: #475569; line-height: 1.6;">Solución corporativa integral. Gestión de inventario automatizada, facturación electrónica y módulos de análisis financiero.</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px; padding: 20px; background: #f8fafc; border-radius: 15px; border: 1px solid #f1f5f9;">
+                        <h4 style="margin: 0; font-size: 16px; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #38bdf8;">★</span> Nutrizen HealthTech
+                        </h4>
+                        <p style="margin: 10px 0 0; font-size: 12.5px; color: #475569; line-height: 1.6;">Aplicación para el monitoreo nutricional con visualización de datos de consumo y planes personalizados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        document.getElementById('btnDownloadPortfolio').addEventListener('click', function() {
+            const element = document.getElementById('portfolio-pdf-template');
+            element.style.display = 'block';
+
+            const opt = {
+                margin: [0, 0, 0, 0],
+                filename: 'Portafolio_Diego_Alberto.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: 'avoid-all' }
+            };
+
+            html2pdf().from(element).set(opt).save().then(() => {
+                element.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 
 </html>

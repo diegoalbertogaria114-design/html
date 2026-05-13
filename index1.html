@@ -8,17 +8,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="uai-style.css">
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body class="dark-mode">
     <header>
         <nav class="container">
             <div class="logo">DA.<span>V</span></div>
             <ul>
-                <li><a href="links.html">Sin CSS</a></li>
+                <li><a href="index.html">Sin CSS</a></li>
                 <li><a href="index1.html" class="active">CSS1</a></li>
                 <li><a href="index2.html">CSS2</a></li>
                 <li><a href="index3.html">CSS3</a></li>
-                <li><a href="temp_links.html">Portafolio</a></li>
+                <li><a href="index.html">Portafolio</a></li>
             </ul>
         </nav>
     </header>
@@ -33,7 +35,7 @@
                 <p class="subtitle">Desarrollador Full Stack & Diseñador UI/UX</p>
                 <div class="cta-buttons">
                     <a href="#contacto" class="btn btn-primary">Contáctame</a>
-                    <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
+                    <a href="javascript:void(0)" id="btnDownloadPortfolio" class="btn btn-secondary">Descargar PDF</a>
                 </div>
             </div>
         </section>
@@ -93,16 +95,53 @@
         <div class="container footer-content">
             <p>&copy; 2026 Diego Alberto Garcia Villanueva. Hecho con ❤️ y CSS.</p>
             <nav class="footer-nav">
-                <a href="links.html">Sin CSS</a>
+                <a href="index.html">Sin CSS</a>
                 <a href="index1.html">CSS1</a>
                 <a href="index2.html">CSS2</a>
                 <a href="index3.html">CSS3</a>
-                <a href="temp_links.html">Portfolio</a>
+                <a href="index.html">Portafolio</a>
             </nav>
         </div>
     </footer>
     <a href="https://wa.me/51998244133" class="whatsapp-btn" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
+
+    <!-- Premium Portafolio PDF Template (Hidden) -->
+    <div id="portfolio-pdf-template" style="display: none; padding: 0; font-family: 'Inter', Arial, sans-serif; background: #fff; width: 800px; margin: 0 auto; color: #1a1a1a;">
+        <div style="background: #0f172a; padding: 50px 40px; color: white;">
+            <h1 style="margin: 0; font-size: 36px; font-weight: 800;">DIEGO ALBERTO</h1>
+            <p style="margin: 5px 0 0; font-size: 18px; color: #38bdf8;">Full Stack Developer</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 260px 1fr; gap: 0;">
+            <div style="background: #f8fafc; padding: 40px 30px; border-right: 1px solid #e2e8f0; min-height: 800px;">
+                <h3 style="font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 15px;">EDUCACIÓN</h3>
+                <p style="font-size: 13px; color: #475569;">Ingeniería de Sistemas - UAI</p>
+                <h3 style="font-size: 14px; font-weight: 800; color: #0f172a; margin: 30px 0 15px;">HABILIDADES</h3>
+                <p style="font-size: 13px; color: #475569;">React, Node.js, Python, MongoDB, AWS</p>
+            </div>
+            <div style="padding: 40px 40px;">
+                <h2 style="font-size: 18px; font-weight: 800; margin-bottom: 20px;">EXPERIENCIA</h2>
+                <p style="font-size: 13px; line-height: 1.6; color: #475569;">Desarrollo de Staynoba, ERP Ferretería y Nutrizen.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btnDownloadPortfolio').addEventListener('click', function() {
+            const element = document.getElementById('portfolio-pdf-template');
+            element.style.display = 'block';
+            const opt = {
+                margin: 0,
+                filename: 'Portafolio_Diego_Alberto.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().from(element).set(opt).save().then(() => {
+                element.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
